@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre entreprise – Plombier Rennes | Urgence 24h/24</title>
+<meta name="description" content="Plombier à Rennes disponible 24h/24. Urgences, fuites, débouchage, salle de bain. Appelez Votre entreprise maintenant !">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #1a56db;
+    --accent2: #3b82f6;
+    --dark: #0d1b2a;
+    --white: #ffffff;
+    --bg: #f7f8fc;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --muted: #64748b;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family:'DM Sans',sans-serif; color:var(--text); overflow-x:hidden; background:var(--bg); }
+
+  /* ───── HEADER ───── */
+  header {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 4%;
+    background:rgba(255,255,255,0.97);
+    backdrop-filter:blur(10px);
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 16px rgba(0,0,0,0.08);
+  }
+  .logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:2px; color:var(--dark); line-height:1; }
+  .logo span { color:var(--accent); }
+  .cta-header {
+    background:var(--accent); color:#fff;
+    padding:10px 18px; border-radius:6px; text-decoration:none;
+    font-weight:700; font-size:0.88rem;
+    display:flex; align-items:center; gap:6px;
+    animation:pulse 2s infinite; white-space:nowrap;
+    transition:background 0.2s;
+  }
+  .cta-header:hover { background:var(--accent2); }
+
+  @keyframes pulse {
+    0%,100% { box-shadow:0 0 0 0 rgba(26,86,219,0.4); }
+    50%      { box-shadow:0 0 0 10px rgba(26,86,219,0); }
+  }
+
+  /* ───── HERO ───── */
+  .hero {
+    min-height:100svh;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:100px 5% 50px;
+    position:relative; overflow:hidden;
+  }
+  .hero-bg {
+    position:absolute; inset:0;
+    background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=90') center/cover no-repeat;
+  }
+  /* Overlay léger — image très visible, texte lisible */
+  .hero-bg::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(
+      to top,
+      rgba(13,27,42,0.88) 0%,
+      rgba(13,27,42,0.55) 50%,
+      rgba(13,27,42,0.25) 100%
+    );
+  }
+  .hero-content { position:relative; z-index:1; max-width:680px; }
+
+  .badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(26,86,219,0.3); border:1px solid rgba(96,165,250,0.6);
+    color:#93c5fd; padding:6px 14px; border-radius:50px;
+    font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+    margin-bottom:20px; animation:fadeUp 0.5s ease both;
+  }
+  .blink { animation:blink 1.2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.1} }
+
+  h1 {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(3rem,12vw,7rem); line-height:0.92;
+    color:#fff; animation:fadeUp 0.6s 0.1s ease both;
+  }
+  h1 span { color:#60a5fa; }
+
+  .sub {
+    font-size:clamp(0.95rem,3.5vw,1.15rem); color:#cbd5e1; font-weight:300;
+    margin:18px 0 32px; line-height:1.7; max-width:500px;
+    animation:fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-cta { display:flex; flex-wrap:wrap; gap:12px; animation:fadeUp 0.6s 0.3s ease both; }
+  .btn-call {
+    background:var(--accent); color:#fff;
+    padding:15px 28px; border-radius:8px; text-decoration:none;
+    font-weight:700; font-size:1rem;
+    display:flex; align-items:center; gap:8px;
+    animation:pulse 2s infinite; transition:background 0.2s;
+    flex:1; justify-content:center; max-width:260px;
+  }
+  .btn-call:hover { background:var(--accent2); }
+  .btn-scroll {
+    border:1px solid rgba(255,255,255,0.3); color:#e2e8f0;
+    padding:15px 22px; border-radius:8px; text-decoration:none;
+    font-size:0.9rem; display:flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,0.08); backdrop-filter:blur(4px);
+    transition:all 0.2s; flex:1; justify-content:center; max-width:220px;
+  }
+  .btn-scroll:hover { border-color:#60a5fa; color:#60a5fa; }
+
+  .stats {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+    margin-top:36px; animation:fadeUp 0.6s 0.4s ease both;
+  }
+  .stat {
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    padding:14px 8px; border-radius:10px; text-align:center;
+    backdrop-filter:blur(6px);
+  }
+  .stat-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:#60a5fa; display:block; line-height:1; }
+  .stat-label { font-size:0.65rem; color:#94a3b8; text-transform:uppercase; letter-spacing:0.6px; margin-top:3px; display:block; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+
+  /* ───── SECTION BASE ───── */
+  .section { padding:60px 5%; position:relative; overflow:hidden; }
+  .section-bg {
+    position:absolute; inset:0;
+    background-size:cover; background-position:center; background-attachment:fixed;
+    z-index:0;
+  }
+  .section-content { position:relative; z-index:1; }
+
+  .section-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(2rem,7vw,3rem); letter-spacing:1px; margin-bottom:6px;
+  }
+  .section-sub { font-size:0.95rem; margin-bottom:36px; font-weight:300; }
+
+  /* ───── SERVICES ───── */
+  #services .section-bg {
+    background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&q=90');
+  }
+  #services .section-bg::after {
+    content:''; position:absolute; inset:0;
+    background:rgba(247,248,252,0.88);
+  }
+  #services .section-title { color:var(--dark); }
+  #services .section-sub { color:var(--muted); }
+
+  .services-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:14px;
+  }
+  .service-card {
+    background:rgba(255,255,255,0.93); border:1px solid rgba(226,232,240,0.8);
+    padding:24px 20px; border-radius:12px;
+    transition:all 0.25s; box-shadow:0 2px 12px rgba(0,0,0,0.06);
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .service-card:hover { border-color:var(--accent); box-shadow:0 8px 28px rgba(26,86,219,0.13); transform:translateY(-3px); }
+  .service-icon { font-size:1.8rem; flex-shrink:0; margin-top:2px; }
+  .service-name { font-weight:700; font-size:1rem; margin-bottom:6px; color:var(--dark); }
+  .service-desc { color:var(--muted); font-size:0.85rem; line-height:1.5; }
+
+  /* ───── URGENCE ───── */
+  .urgence-band { position:relative; overflow:hidden; padding:70px 5%; text-align:center; }
+  .urgence-band .section-bg {
+    background-image:url('https://images.unsplash.com/photo-1585704032915-c3400305e979?w=1400&q=90');
+  }
+  .urgence-band .section-bg::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(135deg, rgba(26,86,219,0.82) 0%, rgba(30,64,175,0.86) 100%);
+  }
+  .urgence-band h2 {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(1.8rem,7vw,3rem); color:#fff; letter-spacing:1px; margin-bottom:10px;
+  }
+  .urgence-band p { color:rgba(255,255,255,0.85); margin-bottom:26px; font-size:1rem; }
+  .btn-big {
+    display:inline-flex; align-items:center; gap:10px;
+    background:#fff; color:var(--accent);
+    padding:16px 36px; border-radius:8px; text-decoration:none;
+    font-weight:700; font-size:1.1rem; transition:all 0.2s;
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+  }
+  .btn-big:hover { transform:scale(1.03); }
+
+  /* ───── CONFIANCE ───── */
+  #confiance .section-bg {
+    background-image:url('https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=1400&q=90');
+  }
+  #confiance .section-bg::after {
+    content:''; position:absolute; inset:0;
+    background:rgba(238,241,248,0.87);
+  }
+  #confiance .section-title { color:var(--dark); }
+  #confiance .section-sub { color:var(--muted); }
+
+  .trust-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+  .trust-card {
+    text-align:center; padding:28px 18px;
+    background:rgba(255,255,255,0.9); border-radius:12px;
+    border:1px solid rgba(226,232,240,0.7);
+    transition:all 0.2s; box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  }
+  .trust-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+  .trust-icon { font-size:1.8rem; margin-bottom:12px; }
+  .trust-title { font-weight:700; margin-bottom:8px; color:var(--dark); font-size:0.95rem; }
+  .trust-text { color:var(--muted); font-size:0.84rem; line-height:1.55; }
+
+  /* ───── AVIS ───── */
+  #avis { background:var(--white); }
+  #avis .section-title { color:var(--dark); }
+  #avis .section-sub { color:var(--muted); }
+  .reviews { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .review { background:var(--bg); border:1px solid var(--border); padding:22px; border-radius:12px; }
+  .stars { color:#f59e0b; font-size:0.95rem; margin-bottom:10px; }
+  .review-text { color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:14px; font-style:italic; }
+  .review-author { font-weight:700; font-size:0.82rem; color:var(--dark); }
+
+  /* ───── CONTACT ───── */
+  #contact .section-bg {
+    background-image:url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1400&q=90');
+  }
+  #contact .section-bg::after {
+    content:''; position:absolute; inset:0;
+    background:rgba(255,255,255,0.91);
+  }
+  #contact .section-title { color:var(--dark); }
+  #contact .section-sub { color:var(--muted); }
+
+  .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+  .contact-info p { color:var(--muted); margin-bottom:24px; line-height:1.7; font-size:0.95rem; }
+  .contact-detail { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .contact-detail .icon {
+    width:40px; height:40px; background:#eff6ff; border-radius:8px;
+    display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;
+  }
+  .contact-detail a { color:var(--dark); text-decoration:none; font-weight:600; font-size:0.95rem; }
+  .contact-detail a:hover { color:var(--accent); }
+  .contact-detail small { color:var(--muted); font-size:0.8rem; display:block; }
+
+  form { display:flex; flex-direction:column; gap:11px; }
+  form input, form textarea, form select {
+    background:var(--white); border:1px solid var(--border); color:var(--text);
+    padding:13px 14px; border-radius:8px;
+    font-family:'DM Sans',sans-serif; font-size:0.95rem; outline:none;
+    transition:border 0.2s, box-shadow 0.2s; width:100%;
+  }
+  form input:focus, form textarea:focus, form select:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(26,86,219,0.1); }
+  form textarea { height:100px; resize:vertical; }
+  .btn-send {
+    background:var(--accent); color:#fff; padding:14px; border:none;
+    border-radius:8px; font-weight:700; font-size:1rem; cursor:pointer;
+    font-family:'DM Sans',sans-serif; transition:background 0.2s; width:100%;
+  }
+  .btn-send:hover { background:var(--accent2); }
+  .form-success {
+    display:none; background:#ecfdf5; border:1px solid #6ee7b7;
+    color:#065f46; padding:13px; border-radius:8px;
+    text-align:center; font-weight:600; font-size:0.9rem;
+  }
+
+  /* ───── FOOTER ───── */
+  footer { text-align:center; padding:26px 5%; background:var(--dark); color:#475569; font-size:0.83rem; }
+  footer a { color:#60a5fa; text-decoration:none; }
+  footer strong { color:#94a3b8; }
+  footer p + p { margin-top:5px; }
+
+  /* ───── FLOATING CALL ───── */
+  .float-call {
+    position:fixed; bottom:20px; right:20px;
+    background:var(--accent); color:#fff;
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem; text-decoration:none;
+    box-shadow:0 4px 20px rgba(26,86,219,0.5);
+    z-index:300; animation:pulse 2s infinite; transition:transform 0.2s;
+  }
+  .float-call:hover { transform:scale(1.1); }
+
+  /* ───── REVEAL ───── */
+  .reveal { opacity:1; transform:translateY(0); transition:opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.animate-hidden { opacity:0; transform:translateY(20px); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* ───── MOBILE ───── */
+  @media (max-width: 768px) {
+    /* Header */
+    .logo { font-size:1.3rem; }
+    .cta-header { padding:9px 14px; font-size:0.82rem; }
+
+    /* Hero */
+    .hero { padding:90px 5% 40px; justify-content:flex-end; }
+    .hero-bg { background-attachment:scroll; }
+    .hero-bg::after { background:linear-gradient(to top, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.6) 55%, rgba(13,27,42,0.2) 100%); }
+    h1 { font-size:clamp(2.8rem,14vw,4.5rem); }
+    .sub { font-size:0.95rem; margin:14px 0 24px; }
+    .hero-cta { flex-direction:column; gap:10px; }
+    .btn-call, .btn-scroll { max-width:100%; width:100%; justify-content:center; padding:14px; }
+    .stats { grid-template-columns:repeat(2,1fr); gap:8px; margin-top:24px; }
+    .stat-num { font-size:1.8rem; }
+
+    /* Sections */
+    .section { padding:50px 5%; }
+    .section-bg { background-attachment:scroll; }
+
+    /* Services */
+    .services-grid { grid-template-columns:1fr; gap:10px; }
+    .service-card { padding:20px 16px; }
+
+    /* Urgence */
+    .urgence-band { padding:50px 5%; }
+    .urgence-band .section-bg { background-attachment:scroll; }
+    .btn-big { padding:14px 24px; font-size:1rem; width:100%; justify-content:center; }
+
+    /* Confiance */
+    .trust-grid { grid-template-columns:1fr 1fr; gap:10px; }
+    .trust-card { padding:20px 14px; }
+    .trust-icon { font-size:1.5rem; }
+
+    /* Avis */
+    .reviews { grid-template-columns:1fr; }
+
+    /* Contact */
+    .contact-wrap { grid-template-columns:1fr; gap:30px; }
+  }
+
+  @media (max-width: 400px) {
+    .trust-grid { grid-template-columns:1fr; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Votre <span>entreprise</span></div>
+  <a href="tel:+33600000000" class="cta-header">📞 Appeler maintenant</a>
+</header>
+
+<!-- HERO : plombier en action, image très visible -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="badge"><span class="blink">●</span>&nbsp;Disponible maintenant · Rennes & alentours</div>
+    <h1>Votre plombier<br><span>de confiance</span><br>à Rennes</h1>
+    <p class="sub">Urgence, fuite, débouchage, installation — Votre entreprise intervient rapidement à votre domicile. Devis gratuit, travail soigné, prix honnête.</p>
+    <div class="hero-cta">
+      <a href="tel:+33600000000" class="btn-call">📞 06 00 00 00 00</a>
+      <a href="#services" class="btn-scroll">Voir les services ↓</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-num">24h</span><span class="stat-label">Disponible</span></div>
+      <div class="stat"><span class="stat-num">7j/7</span><span class="stat-label">Weekend</span></div>
+      <div class="stat"><span class="stat-num">~1h</span><span class="stat-label">Délai moyen</span></div>
+      <div class="stat"><span class="stat-num">0€</span><span class="stat-label">Devis</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES : fond tuyaux très visible -->
+<section id="services" class="section">
+  <div class="section-bg"></div>
+  <div class="section-content">
+    <div class="section-title reveal">Mes <span style="color:var(--accent)">services</span></div>
+    <p class="section-sub reveal">Toutes les interventions à Rennes et ses environs</p>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-icon">💧</div><div><div class="service-name">Urgences & fuites</div><div class="service-desc">Fuite d'eau, tuyau cassé, robinet qui coule — intervention rapide pour stopper les dégâts.</div></div></div>
+      <div class="service-card reveal"><div class="service-icon">🚿</div><div><div class="service-name">Débouchage</div><div class="service-desc">Évier, WC, baignoire, douche bouchés. Débouchage professionnel garanti.</div></div></div>
+      <div class="service-card reveal"><div class="service-icon">🛁</div><div><div class="service-name">Installation salle de bain</div><div class="service-desc">Pose de douche, baignoire, lavabo, WC suspendu. Rénovation complète possible.</div></div></div>
+      <div class="service-card reveal"><div class="service-icon">🔥</div><div><div class="service-name">Chauffe-eau & chaudière</div><div class="service-desc">Remplacement, entretien et dépannage toutes marques.</div></div></div>
+      <div class="service-card reveal"><div class="service-icon">🏗️</div><div><div class="service-name">Rénovation plomberie</div><div class="service-desc">Mise aux normes, remplacement de tuyauteries, travaux neufs.</div></div></div>
+      <div class="service-card reveal"><div class="service-icon">🔍</div><div><div class="service-name">Diagnostic & devis</div><div class="service-desc">Repérage de fuites, diagnostic complet. Devis offert, sans engagement.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCE : fond salle de bain -->
+<div class="urgence-band">
+  <div class="section-bg"></div>
+  <div class="section-content">
+    <h2>⚡ UNE URGENCE EN CE MOMENT ?</h2>
+    <p>Ne laissez pas l'eau endommager votre domicile. Votre entreprise est joignable maintenant.</p>
+    <a href="tel:+33600000000" class="btn-big">📞 Appeler le 06 00 00 00 00</a>
+  </div>
+</div>
+
+<!-- CONFIANCE : fond robinet -->
+<section id="confiance" class="section">
+  <div class="section-bg"></div>
+  <div class="section-content">
+    <div class="section-title reveal">Pourquoi <span style="color:var(--accent)">me choisir</span></div>
+    <p class="section-sub reveal">Un artisan local, honnête, disponible</p>
+    <div class="trust-grid">
+      <div class="trust-card reveal"><div class="trust-icon">⚡</div><div class="trust-title">Intervention rapide</div><div class="trust-text">7j/7 et 24h/24. Moins d'une heure pour les urgences.</div></div>
+      <div class="trust-card reveal"><div class="trust-icon">💰</div><div class="trust-title">Prix transparent</div><div class="trust-text">Devis gratuit avant tout travail. Pas de surprise.</div></div>
+      <div class="trust-card reveal"><div class="trust-icon">🏅</div><div class="trust-title">Artisan qualifié</div><div class="trust-text">Années d'expérience, travaux soignés et durables.</div></div>
+      <div class="trust-card reveal"><div class="trust-icon">📍</div><div class="trust-title">Local à Rennes</div><div class="trust-text">Je connais le secteur, j'interviens rapidement.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="section" style="padding-bottom:60px;">
+    <div class="section-title reveal" style="color:var(--dark)">Ce que disent <span style="color:var(--accent)">mes clients</span></div>
+    <p class="section-sub reveal" style="color:var(--muted)">Des voisins satisfaits à Rennes</p>
+    <div class="reviews">
+      <div class="review reveal"><div class="stars">★★★★★</div><div class="review-text">"Votre entreprise est venue en urgence un samedi soir pour une fuite. Très pro, rapide et prix raisonnable. Je recommande vivement !"</div><div class="review-author">Sophie M. – Rennes Centre</div></div>
+      <div class="review reveal"><div class="stars">★★★★★</div><div class="review-text">"Débouchage de salle de bain réglé en 30 minutes. Ponctuel, propre, efficace. Merci ! !"</div><div class="review-author">Karim D. – Cesson-Sévigné</div></div>
+      <div class="review reveal"><div class="stars">★★★★★</div><div class="review-text">"Installation complète de ma douche à l'italienne. Travail très soigné, délai respecté. Top artisan !"</div><div class="review-author">Lucie B. – Saint-Grégoire</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT : fond outils -->
+<section id="contact" class="section">
+  <div class="section-bg"></div>
+  <div class="section-content">
+    <div class="section-title reveal">Me <span style="color:var(--accent)">contacter</span></div>
+    <p class="section-sub reveal">Par téléphone ou via le formulaire — réponse sous 1h</p>
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <p>Pour toute demande d'intervention, devis ou question, contactez-moi directement. Je réponds à tous les messages.</p>
+        <div class="contact-detail"><div class="icon">📞</div><div><a href="tel:+33600000000">06 00 00 00 00</a><small>7j/7 · 24h/24</small></div></div>
+        <div class="contact-detail"><div class="icon">✉️</div><div><a href="/cdn-cgi/l/email-protection#cbbca7bea6a2a5a4b9aaafa2aca2bfaaa78baca6aaa2a7e5a8a4a6"><span class="__cf_email__" data-cfemail="bfc8d3cad2d6d1d0cddedbd6d8d6cbded3ffd8d2ded6d391dcd0d2">[email&#160;protected]</span></a></div></div>
+        <div class="contact-detail"><div class="icon">📍</div><div><span style="font-weight:600">Rennes et alentours</span><small>Cesson, St-Grégoire, Bruz, Pacé…</small></div></div>
+      </div>
+
+      <!--
+        👉 Pour activer l'envoi d'email (gratuit) :
+        1. Aller sur formspree.io
+        2. Créer un compte avec wluminoradigital@gmail.com
+        3. Nouveau formulaire → copier le Form ID
+        4. Remplacer YOUR_FORM_ID ci-dessous
+      -->
+      <form class="reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="🔧 Nouvelle demande – Votre entreprise Plombier">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <input type="tel" name="telephone" placeholder="Votre téléphone" required>
+        <select name="intervention">
+          <option value="" disabled selected>Type d'intervention</option>
+          <option>Urgence / Fuite</option>
+          <option>Débouchage</option>
+          <option>Installation salle de bain</option>
+          <option>Chauffe-eau / Chaudière</option>
+          <option>Autre</option>
+        </select>
+        <textarea name="message" placeholder="Décrivez votre problème..."></textarea>
+        <button type="submit" class="btn-send">📩 Envoyer ma demande</button>
+        <div class="form-success" id="form-success">✅ Message envoyé ! Votre entreprise vous rappelle très vite.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Votre entreprise</strong> – Plombier à Rennes · <a href="tel:+33600000000">06 00 00 00 00</a></p>
+  <p>Intervention rapide · Devis gratuit · Rennes et alentours</p>
+</footer>
+
+<a href="tel:+33600000000" class="float-call" title="Appeler">📞</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.classList.add('animate-hidden');
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('visible'); el.classList.remove('animate-hidden'); }
+    }, { threshold: 0.08 }).observe(el);
+  });
+
+  // Formspree AJAX
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.btn-send');
+    btn.textContent = 'Envoi en cours...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        this.reset();
+        const msg = document.getElem
